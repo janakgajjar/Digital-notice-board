@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Notice Board</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">  <!-- Custom theme -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/pushpin.js' %}"></script>  <!-- Animation JS -->
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(45deg, #007bff, #28a745);">  <!-- Blue to green gradient -->
+        <div class="container">
+            <a class="navbar-brand" href="#">Digital Notice Board</a>
+            {% if user.is_authenticated %}
+                <span class="navbar-text text-white">Welcome, {{ user.username }} | <a href="{% url 'logout' %}" class="text-white">Logout</a></span>
+            {% endif %}
+        </div>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+

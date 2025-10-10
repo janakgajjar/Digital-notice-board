@@ -1,0 +1,15 @@
+/* Blue-Green Dashboard Theme */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.navbar { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.card { border: 1px solid #007bff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,123,255,0.1); margin-bottom: 20px; transition: transform 0.3s; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(40,167,69,0.2); }  /* Green hover accent */
+.btn-primary { background-color: #007bff; border-color: #007bff; }
+.btn-success { background-color: #28a745; border-color: #28a745; }
+/* Push Pin Animation */
+.notice-card { position: relative; opacity: 0; transform: translateY(-50px); animation: pinSlideIn 0.8s ease-out forwards; }
+.notice-card::before { content: '📌'; position: absolute; top: -10px; right: 10px; font-size: 20px; z-index: 1; }  /* Pin icon */
+@keyframes pinSlideIn {
+    0% { opacity: 0; transform: translateY(-50px) rotate(-5deg); }
+    50% { opacity: 0.7; transform: translateY(10px) rotate(2deg); }  /* Bounce like pinning */
+    100% { opacity: 1; transform: translateY(0) rotate(0); }
+}

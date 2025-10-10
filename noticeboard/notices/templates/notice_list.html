@@ -1,0 +1,33 @@
+{% extends 'notices/base.html' %}
+
+{% block title %}Latest notice{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4 text-center">College Annocuements</h1>
+
+    <form method="get" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Find notice..." value="{{ request.GET.q }}">
+            <button class="btn btn-primary" type="submit">Find</button>
+        </div>
+    </form>
+
+    {% for notice in notices %}
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">{{ notice.title }}</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ notice.description|linebreaks }}</p>
+                {% if notice.attachment %}
+                    <a href="{{ notice.attachment.url }}" class="btn btn-sm btn-outline-primary" download>Download attachment</a>
+                {% endif %}
+            </div>
+            <div class="card-footer text-muted">
+                Posted Date: {{ notice.created_at|date:"d M Y" }} | Expiry Date: {{ notice.expiry_date|date:"d M Y" }}
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">There are currently no active notices.</p>
+    {% endfor %}
+{% endblock %}
