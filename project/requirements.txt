@@ -16,7 +16,6 @@ charset-normalizer==3.4.2
 click==8.2.1
 colorama==0.4.6
 comm==0.2.2
-comtypes==1.4.11
 debugpy==1.8.15
 decorator==5.2.1
 defusedxml==0.7.1
@@ -73,11 +72,8 @@ pure_eval==0.2.3
 pycparser==2.22
 Pygments==2.19.2
 pyjokes==0.8.3
-pypiwin32==223
 python-dateutil==2.9.0.post0
 python-json-logger==3.3.0
-pyttsx3==2.98
-pywin32==310
 pywinpty==2.0.15
 PyYAML==6.0.2
 pyzmq==27.0.0
